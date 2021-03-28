@@ -7,6 +7,7 @@ const cors = require("cors");
 
 const typeDefs = require("./graphql/schema");
 const resolvers = require("./graphql/resolver");
+const ctx = require("./middleware/context")
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 8000;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ctx
 });
 
 app.get("/", (_, res) => {

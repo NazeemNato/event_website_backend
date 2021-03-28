@@ -4,7 +4,7 @@ const typeDefs = gql`
   # ************************** TYPES *************************** #
   type User {
     id: ID
-    username: String!
+    fullName: String!
     email: String
     events: [Event!]
   }
@@ -59,7 +59,7 @@ const typeDefs = gql`
 
   # ************************** Query & Mutation *************************** #
   type Query {
-    # events: [Event!]
+    events: [Event!]
     # bookings: [Booking!]
     hello: String
   }
@@ -67,7 +67,7 @@ const typeDefs = gql`
   type Mutation {
     login(input: LoginInput): Auth!
     register(input: RegisterInput): Auth!
-    # createEvent(input: CreateEvent): Message!
+    createEvent(input: CreateEvent): Message!
     # bookEvent(eventId: String!): Message!           
     # cancelEvent(eventId: String!): Message!                   
   }
