@@ -6,17 +6,12 @@ const {
 const Event = require("../../models/Event");
 const User = require("../../models/User");
 
+
 const resolver = {
   Query: {
     events: async () => {
-      const events = await Event.find().sort({ _id: -1 });
-      console.log(events);
-      return events.map((event) => {
-        return {
-          ...event._doc,
-          _id: event.id,
-        };
-      });
+      const events = await Event.find({}).sort({ _id: -1 }).populate('users')
+      return events
     },
   },
   Mutation: {

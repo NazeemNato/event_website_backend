@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   fullName: {
     type: String,
   },
@@ -27,6 +27,6 @@ const UserSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+}, {toJSON: {virtuals: true}});
 
 module.exports = mongoose.model("User", UserSchema);

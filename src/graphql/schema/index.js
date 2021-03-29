@@ -4,7 +4,7 @@ const typeDefs = gql`
   # ************************** TYPES *************************** #
   type User {
     id: ID
-    fullName: String!
+    fullName: String
     email: String
     events: [Event!]
   }
@@ -17,7 +17,7 @@ const typeDefs = gql`
     location: String
     date: String
     price: Float
-    createdBy: User!
+    createdBy: User
     createdOn: String
   }
 
