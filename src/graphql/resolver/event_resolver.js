@@ -10,7 +10,10 @@ const User = require("../../models/User");
 const resolver = {
   Query: {
     events: async () => {
-      const events = await Event.find({}).sort({ _id: -1 }).populate('users')
+      const events = await Event.find({}).sort({ _id: -1 }).populate({
+        path: "createdBy",
+        model: "User"
+      }).exec()
       return events
     },
   },
